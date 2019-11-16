@@ -24,7 +24,7 @@ public class MyObjectFactory extends DefaultObjectFactory {
 			Dept dept = (Dept) super.create(type);
 			// 设置自定义规则 (数据库中没有此字段)
 			dept.setCountry("China");
-			return (T) dept;
+			return dept;
 		}
 
 		return super.create(type);
