@@ -9,6 +9,17 @@ public class Dept {
 	private Integer deptNo;
 	private String dName;
 	private String loc;
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	private String country;
+
 	public Integer getDeptNo() {
 		return deptNo;
 	}
