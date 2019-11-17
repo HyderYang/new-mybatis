@@ -4,7 +4,6 @@ import pro.hyder.service.BaseService;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
 
 /**
  * 通知类
