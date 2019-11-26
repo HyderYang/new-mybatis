@@ -1,5 +1,7 @@
 package pro.hyder.utils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -52,10 +54,25 @@ public class BeanFactory {
 				String classPath = obj.getClassPath();
 				try {
 					Class<?> aClass = Class.forName(classPath);
+
+					// 动态工厂实现
+					String factoryBean = obj.getFactoryBean();
+					String factoryMethod = obj.getFactoryMethod();
+
+					// 作用域判断
 					String scope = obj.getScope();
 					switch (scope) {
 						case "prototype":
-							o = aClass.newInstance();
+							// 动态工厂生成实例
+							if(factoryBean != null && factoryMethod != null){
+								Object factoryObj = this.SpringIoc.get(factoryBean);
+								Class<?> factoryObjClass = factoryObj.getClass();
+								Method declaredMethod = factoryObjClass.getDeclaredMethod(factoryMethod, null);
+								declaredMethod.setAccessible(true);
+								o = declaredMethod.invoke(factoryObj, null);
+							}else {
+								o = aClass.newInstance();
+							}
 							break;
 						default:
 							o = SpringIoc.get(beanId);
@@ -65,6 +82,10 @@ public class BeanFactory {
 				} catch (IllegalAccessException e) {
 					e.printStackTrace();
 				} catch (InstantiationException e) {
+					e.printStackTrace();
+				} catch (NoSuchMethodException e) {
+					e.printStackTrace();
+				} catch (InvocationTargetException e) {
 					e.printStackTrace();
 				}
 			}
