@@ -20,10 +20,10 @@ public class SpringConfiguration {
 		System.out.println("spring 多配置");
 	}
 
-//	// Bean 注解 可以指定 bean id 如果不知道 则默认beanID就是对应的方法名
-//	// 相当于 bean 标签
-//	@Bean
-//	public UserService userService(){
-//		return new UserServiceImpl();
-//	}
+	// Bean 注解 可以指定 bean id 如果不知道 则默认beanID就是对应的方法名
+	// 相当于 bean 标签
+	@Bean
+	public UserService userService(){
+		return new UserServiceImpl();
+	}
 }

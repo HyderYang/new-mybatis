@@ -4,6 +4,7 @@ import org.junit.Test;
 import pro.hyder.service.UserService;
 import pro.hyder.service.impl.UserServiceImpl;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Proxy;
 
 /**
