@@ -1,11 +1,11 @@
 package pro.hyder.configuration;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import pro.hyder.service.UserService;
-import pro.hyder.service.impl.UserServiceImpl;
+		import org.springframework.beans.factory.annotation.Value;
+		import org.springframework.context.annotation.Bean;
+		import org.springframework.context.annotation.ComponentScan;
+		import org.springframework.context.annotation.Configuration;
+		import pro.hyder.service.UserService;
+		import pro.hyder.service.impl.UserServiceImpl;
 
 /**
  * @author Hyder
