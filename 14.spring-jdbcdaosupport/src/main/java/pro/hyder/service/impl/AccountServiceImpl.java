@@ -22,8 +22,9 @@ public class AccountServiceImpl implements AccountService {
 		int fromMoney = dao.queryMoney(from);
 		dao.update(from, fromMoney - money);
 
+		System.out.println(1 / 0);
+
 		int toMoney = dao.queryMoney(to);
 		dao.update(to, toMoney + money);
-
 	}
 }
