@@ -1,0 +1,23 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- 设置spring配置文件路径 -->
+    <!-- 如果不设置初始化参数 那么 DispatcherServlet 会读取默认配置文件 -->
+    <!-- 默认配置文件路径: /WEB-INF/springmvc-servlet.xml -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+    <!-- 指定初始化时间 2:表示TOMCAT启动时候 DispatcherServlet会跟随初始化 否则 第一次请求时初始化 -->
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
